@@ -13,7 +13,7 @@ const (
 	colorFretPositions  = ansi.LightWhite
 	colorFretString     = ansi.LightBlack
 	colorNeckSaddle     = ansi.LightBlack
-	colorNoteInScale    = ansi.Black + ansi.BgWhite
+	colorNoteInScale    = ansi.LightWhite + ansi.BgLightBlack
 	colorNoteNotInScale = ansi.LightBlack
 	colorScaleKey       = ansi.LightWhite + ansi.BgBlue
 	colorStringNote     = ansi.LightWhite
