@@ -85,12 +85,14 @@ Specify the key with `-k` and the chord pattern with `-p`.
 
 Chord preset patterns are:
 
-- `fifth`
-- `minor-seventh`
-- `minor-triad`
-- `power`
-- `seventh`
 - `triad`
+- `minor-triad`
+- `sus2`
+- `sus4`
+- `dim`
+- `fifth`
+- `major-7th`
+- `minor-7th`
 
 ```
 jimi -k=A -p=triad

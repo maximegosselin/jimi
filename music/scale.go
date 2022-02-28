@@ -7,16 +7,19 @@ import (
 
 var patterns = map[string][]int{
 	"chromatic":        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	"fifth":            {7},
 	"major":            {2, 2, 1, 2, 2, 2, 1},
 	"pentatonic":       {2, 2, 3, 2, 3},
-	"power":            {7},
-	"seventh":          {4, 3, 4},
-	"triad":            {4, 3},
 	"minor":            {2, 1, 2, 2, 1, 2, 2},
 	"minor-pentatonic": {3, 2, 2, 3, 2},
-	"minor-seventh":    {3, 4, 3},
-	"minor-triad":      {3, 4},
+
+	"triad":       {4, 3},
+	"minor-triad": {3, 4},
+	"sus2":        {2, 5},
+	"sus4":        {5, 2},
+	"dim":         {3, 3},
+	"fifth":       {7},
+	"major-7th":   {4, 3, 4},
+	"minor-7th":   {3, 4, 3},
 }
 
 type Scale struct {
