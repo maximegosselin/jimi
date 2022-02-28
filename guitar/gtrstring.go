@@ -47,7 +47,17 @@ func (gs GtrString) neck() string {
 	for i := 0; i < int(gs.capo); i++ {
 		note = note.Next()
 	}
-	return colorStringNote + fmt.Sprintf("%-3s", note.Name()) + colorNeckSaddle + "┃" + colorReset
+	var color string
+	if gs.scale.Name() == "chromatic" {
+		color = colorStringNote
+	} else if !gs.scale.ContainsNote(note) {
+		color = colorNoteNotInScale
+	} else if gs.scale.KeyIs(note) {
+		color = colorScaleKey
+	} else {
+		color = colorNoteInScale
+	}
+	return color + fmt.Sprintf("%-2s", note.Name()) + colorReset + colorNeckSaddle + " ┃" + colorReset
 }
 
 func (gs GtrString) noteFret(note *music.Note) string {
