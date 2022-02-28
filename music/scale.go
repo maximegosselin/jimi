@@ -7,8 +7,9 @@ import (
 
 var patterns = map[string][]int{
 	"chromatic":        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	"blues":            {3, 2, 1, 1, 3, 2},
 	"major":            {2, 2, 1, 2, 2, 2, 1},
-	"pentatonic":       {2, 2, 3, 2, 3},
+	"major-pentatonic": {2, 2, 3, 2, 3},
 	"minor":            {2, 1, 2, 2, 1, 2, 2},
 	"minor-pentatonic": {3, 2, 2, 3, 2},
 

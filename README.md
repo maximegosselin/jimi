@@ -68,6 +68,7 @@ Specify the key with `-k` and the scale pattern with `-p`.
 Scale preset patterns are:
 
 - `chromatic`
+- `blues`
 - `major`
 - `major-pentatonic`
 - `minor`
