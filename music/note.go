@@ -33,9 +33,9 @@ func (n Note) String() string {
 
 func NewNote(n string) (*Note, error) {
 	n = normalizeName(n)
-	re := regexp.MustCompile("([ABCDEFG][#b]?)")
+	re := regexp.MustCompile("([ABCDEFG][#]?)")
 	match := re.FindString(n)
-	if match == "" {
+	if match != n {
 		return nil, errors.New("invalid note")
 	}
 	return chromatic[n], nil
