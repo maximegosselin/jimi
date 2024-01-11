@@ -22,10 +22,7 @@ func app(args []string) (*guitar.Fretboard, error) {
 	if err != nil {
 		return nil, err
 	}
-	s, err := music.NewScale(*patternArg, k)
-	if err != nil {
-		return nil, err
-	}
+	s := music.NewScale(*patternArg, k)
 
 	fb := guitar.NewFretboard(t, s, *capoArg)
 	return &fb, nil

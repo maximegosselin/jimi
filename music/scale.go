@@ -57,12 +57,12 @@ func (s Scale) resolveNotes(key *Note, intervals []int) {
 	}
 }
 
-func NewScale(pattern string, key *Note) (*Scale, error) {
+func NewScale(pattern string, key *Note) *Scale {
 	pattern = strings.ToLower(pattern)
 	scale := Scale{pattern, key, make(map[string]*Note)}
 	if intervals, ok := patterns[pattern]; ok {
 		scale.resolveNotes(key, intervals)
-		return &scale, nil
+		return &scale
 	}
 
 	var intervals []int
@@ -75,5 +75,5 @@ func NewScale(pattern string, key *Note) (*Scale, error) {
 	}
 
 	scale.resolveNotes(key, intervals)
-	return &scale, nil
+	return &scale
 }
