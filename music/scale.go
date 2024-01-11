@@ -13,14 +13,15 @@ var patterns = map[string][]int{
 	"minor":            {2, 1, 2, 2, 1, 2, 2},
 	"minor-pentatonic": {3, 2, 2, 3, 2},
 
-	"triad":       {4, 3},
-	"minor-triad": {3, 4},
-	"sus2":        {2, 5},
-	"sus4":        {5, 2},
-	"dim":         {3, 3},
-	"fifth":       {7},
-	"major-7th":   {4, 3, 4},
-	"minor-7th":   {3, 4, 3},
+	"triad":        {4, 3},
+	"minor-triad":  {3, 4},
+	"sus2":         {2, 5},
+	"sus4":         {5, 2},
+	"dim":          {3, 3},
+	"fifth":        {7},
+	"dominant-7th": {4, 3, 3},
+	"major-7th":    {4, 3, 4},
+	"minor-7th":    {3, 4, 3},
 }
 
 type Scale struct {

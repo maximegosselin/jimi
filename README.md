@@ -92,6 +92,7 @@ Chord preset patterns are:
 - `sus4`
 - `dim`
 - `fifth`
+- `dominant-7th`
 - `major-7th`
 - `minor-7th`
 
