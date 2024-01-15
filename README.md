@@ -67,12 +67,20 @@ Specify the key with `-k` and the scale pattern with `-p`.
 
 Scale preset patterns are:
 
+- `aeolian`
 - `chromatic`
-- `blues`
-- `major`
+- `dorian`
+- `ionian`
+- `locrian`
+- `lydian`
+- `major-blues`
 - `major-pentatonic`
-- `minor`
+- `major`
+- `minor-blues`
 - `minor-pentatonic`
+- `minor`
+- `mixolydian`
+- `phrygian`
 
 ```
 jimi -k=G# -p=minor-pentatonic 
@@ -86,12 +94,15 @@ Specify the key with `-k` and the chord pattern with `-p`.
 
 Chord preset patterns are:
 
-- `triad`
+- `major-triad`
 - `minor-triad`
 - `sus2`
 - `sus4`
+- `aug`
 - `dim`
-- `fifth`
+- `5th`
+- `major-6th`
+- `minor-6th`
 - `dominant-7th`
 - `major-7th`
 - `minor-7th`
