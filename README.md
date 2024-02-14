@@ -34,7 +34,7 @@ jimi
 [Open D](https://en.wikipedia.org/wiki/Open_D_tuning) tuning, G chord shapes with capo on 5th fret.
 
 ```
-jimi -t=DADF#AD -k=G -p=triad -c=5
+jimi -t=DADF#AD -r=G -p=triad -c=5
 ```
 
 ![](docs/complete.png)
@@ -63,62 +63,64 @@ jimi -c=4
 
 ### Display a scale using a preset pattern
 
-Specify the key with `-k` and the scale pattern with `-p`.
+Specify the key with `-r` and the scale pattern with `-p`.
 
 Scale preset patterns are:
 
 - `aeolian`
-- `chromatic`
 - `dorian`
 - `ionian`
 - `locrian`
 - `lydian`
+- `major`
 - `major-blues`
 - `major-pentatonic`
-- `major`
+- `minor`
 - `minor-blues`
 - `minor-pentatonic`
-- `minor`
 - `mixolydian`
 - `phrygian`
 
 ```
-jimi -k=G# -p=minor-pentatonic 
+jimi -r=G# -p=minor-pentatonic 
 ```
 
 ![](docs/scale-preset.png)
 
 ### Display chord shapes using a preset pattern
 
-Specify the key with `-k` and the chord pattern with `-p`.
+Specify the root note with `-r` and the chord pattern with `-p`.
 
 Chord preset patterns are:
 
+- `5th`        
+- `aug`        
+- `dim`        
+- `m7b5`       
+- `major-6th`  
+- `major-7th`  
+- `major-maj7`
 - `major-triad`
+- `minor-6th`  
+- `minor-7th`  
+- `minor-maj7`
 - `minor-triad`
-- `sus2`
+- `sus`        
+- `sus2`       
 - `sus4`
-- `aug`
-- `dim`
-- `5th`
-- `major-6th`
-- `minor-6th`
-- `dominant-7th`
-- `major-7th`
-- `minor-7th`
 
 ```
-jimi -k=A -p=triad
+jimi -r=A -p=major-triad
 ```
 
 ![](docs/chord-preset.png)
 
-### Display a custom scale or chord shapes using semitone intervals
+### Display a custom scale or chord shapes using intervals
 
-Specify the key (or root note) with `-k` and dash-separated list of semitone intervals with `-p`.
+Specify the root note with `-r` and dash-separated list of intervals with `-p`.
 
 ```
-jimi -k=C -p=2-2-1-2-2-2-1
+jimi -r=C -p=1-3-5-b7
 ```
 
 ![](docs/intervals.png)

@@ -32,11 +32,36 @@ func (n Note) String() string {
 }
 
 func NewNote(n string) (*Note, error) {
-	n = normalizeName(n)
+	n = normalizeNote(n)
 	re := regexp.MustCompile("([ABCDEFG][#]?)")
 	match := re.FindString(n)
 	if match != n {
 		return nil, errors.New("invalid note")
 	}
 	return chromatic[n], nil
+}
+
+func normalizeNote(n string) string {
+	switch n {
+	case "Cb":
+		return "B"
+	case "Db":
+		return "C#"
+	case "Eb":
+		return "D#"
+	case "E#":
+		return "F"
+	case "Fb":
+		return "E"
+	case "Gb":
+		return "F#"
+	case "Ab":
+		return "G#"
+	case "Bb":
+		return "A#"
+	case "B#":
+		return "C"
+	default:
+		return n
+	}
 }

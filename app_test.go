@@ -57,7 +57,7 @@ func TestChromaticOutputWithCapo(t *testing.T) {
 }
 
 func TestPresetScaleOutputWithTuningAndCapo(t *testing.T) {
-	got := output([]string{"-p", "minor", "-k", "A", "-t", "DADF#AD", "-c", "4"})
+	got := output([]string{"-p", "minor", "-r", "A", "-t", "DADF#AD", "-c", "4"})
 	want := []string{
 		"F# ┃────┼────┼────┼──▉─┼─G ─┼─G#─┼─A ─┼─A#─┼─B ─┼─C ─┼─C#─┼─D ─┼─D#─┼─E ─┼─F ─┼─F#─┼─G ─┼─G#─┼─A ─┼─A#─┼─B ─┼─C ─┼─C#─┼─D ─┼",
 		"C# ┃────┼────┼────┼──▉─┼─D ─┼─D#─┼─E ─┼─F ─┼─F#─┼─G ─┼─G#─┼─A ─┼─A#─┼─B ─┼─C ─┼─C#─┼─D ─┼─D#─┼─E ─┼─F ─┼─F#─┼─G ─┼─G#─┼─A ─┼",

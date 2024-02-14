@@ -52,7 +52,7 @@ func (gs GtrString) neck() string {
 		color = colorStringNote
 	} else if !gs.scale.ContainsNote(note) {
 		color = colorNoteNotInScale
-	} else if gs.scale.KeyIs(note) {
+	} else if gs.scale.RootIs(note) {
 		color = colorScaleKey
 	} else {
 		color = colorNoteInScale
@@ -82,7 +82,7 @@ func (gs GtrString) noteFret(note *music.Note) string {
 			note.Name() +
 			colorFretString +
 			strings.Repeat(stringChar, -len(note.Name())+2)
-	} else if gs.scale.KeyIs(note) {
+	} else if gs.scale.RootIs(note) {
 		chars += colorScaleKey +
 			note.Name() +
 			strings.Repeat(" ", -len(note.Name())+2)

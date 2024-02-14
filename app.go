@@ -9,8 +9,8 @@ import (
 func app(args []string) (*guitar.Fretboard, error) {
 	fs := flag.NewFlagSet("jimi", flag.ExitOnError)
 	capoArg := fs.Uint("c", 0, "Fret position of capo.")
-	keyArg := fs.String("k", "C", "Key of the scale.")
-	patternArg := fs.String("p", "chromatic", "Pattern name (ie. \"major\") or semitone intervals (ie. \"2-2-1-2-2-2-1\").")
+	rootArg := fs.String("r", "C", "Root note.")
+	patternArg := fs.String("p", "chromatic", "Pattern name (ie. \"minor\") or intervals (ie. \"1-b3-5\").")
 	tuningArg := fs.String("t", "EADGBE", "Guitar tuning from low to high.")
 	fs.Parse(args)
 
@@ -18,11 +18,11 @@ func app(args []string) (*guitar.Fretboard, error) {
 	if err != nil {
 		return nil, err
 	}
-	k, err := music.NewNote(*keyArg)
+	r, err := music.NewNote(*rootArg)
 	if err != nil {
 		return nil, err
 	}
-	s := music.NewScale(*patternArg, k)
+	s := music.NewScale(*patternArg, r)
 
 	fb := guitar.NewFretboard(t, s, *capoArg)
 	return &fb, nil
