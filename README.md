@@ -4,6 +4,10 @@ A command line utility written in Go to display guitar fretboard, scales and cho
 
 Because I love Go, CLIs and guitar (and Hendrix obviously!)
 
+## Demo
+
+Try Jimi in your browser with a [live demo](https://maximegosselin.github.io/jimi-wasm-demo/) made with WebAssembly.
+
 ## Build
 
 [![Go](https://github.com/maximegosselin/jimi/actions/workflows/go.yml/badge.svg)](https://github.com/maximegosselin/jimi/actions/workflows/go.yml)
@@ -93,20 +97,20 @@ Specify the root note with `-r` and the chord pattern with `-p`.
 
 Chord preset patterns are:
 
-- `5th`        
-- `aug`        
-- `dim`        
-- `m7b5`       
-- `major-6th`  
-- `major-7th`  
+- `5th`
+- `aug`
+- `dim`
+- `m7b5`
+- `major-6th`
+- `major-7th`
 - `major-maj7`
 - `major-triad`
-- `minor-6th`  
-- `minor-7th`  
+- `minor-6th`
+- `minor-7th`
 - `minor-maj7`
 - `minor-triad`
-- `sus`        
-- `sus2`       
+- `sus`
+- `sus2`
 - `sus4`
 
 ```

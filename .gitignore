@@ -1,3 +1,5 @@
 /.idea
+/wasm/wasm_exec.js
 jimi
 jimi.exe
+jimi.wasm

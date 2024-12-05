@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("jimi.wasm"), go.importObject).then((result) => {
+            let outputBuf = '';
+            const decoder = new TextDecoder("utf-8");
+            globalThis.fs.writeSync = function(fd, buf) {
+                outputBuf += decoder.decode(buf);
+                const nl = outputBuf.lastIndexOf("\n");
+                if (nl != -1) {
+                    alert(outputBuf.substr(0, nl + 1));
+                    outputBuf = outputBuf.substr(nl + 1);
+                }
+                return buf.length;
+            };
+
+            go.argv = ['jimi', '-r=C', '-p=major-triad'];
+            go.run(result.instance);
+        });
+    </script>
+</head>
+</html>
