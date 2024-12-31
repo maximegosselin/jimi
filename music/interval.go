@@ -5,52 +5,50 @@ import (
 )
 
 var semitones = map[string]int{
-	"1":  0,
-	"b2": 1,
-	"2":  2,
-	"b3": 3,
-	"3":  4,
-	"4":  5,
-	"b5": 6,
-	"5":  7,
-	"b6": 8,
-	"6":  9,
-	"b7": 10,
-	"7":  11,
-	"b9": 13,
-	"9":  14,
+	"R":  0,
+	"m2": 1,
+	"M2": 2,
+	"m3": 3,
+	"M3": 4,
+	"P4": 5,
+	"d5": 6,
+	"P5": 7,
+	"m6": 8,
+	"M6": 9,
+	"m7": 10,
+	"M7": 11,
 }
 
 var patterns = map[string][]string{
-	"aeolian":          {"1", "2", "b3", "4", "5", "b6", "b7"},
-	"dorian":           {"1", "2", "b3", "4", "5", "6", "b7"},
-	"ionian":           {"1", "2", "3", "4", "5", "6", "7"},
-	"locrian":          {"1", "b2", "b3", "4", "b5", "b6", "b7"},
-	"lydian":           {"1", "2", "3", "b5", "5", "6", "7"},
-	"major":            {"1", "2", "3", "4", "5", "6", "7"},
-	"major-blues":      {"1", "2", "b3", "3", "5", "6"},
-	"major-pentatonic": {"1", "2", "3", "5", "6"},
-	"minor":            {"1", "2", "b3", "4", "5", "b6", "b7"},
-	"minor-blues":      {"1", "b3", "4", "b5", "5", "b7"},
-	"minor-pentatonic": {"1", "b3", "4", "5", "b7"},
-	"mixolydian":       {"1", "2", "3", "4", "5", "6", "b7"},
-	"phrygian":         {"1", "b2", "b3", "4", "5", "b6", "b7"},
+	"aeolian":          {"R", "M2", "m3", "P4", "P5", "m6", "m7"},
+	"dorian":           {"R", "M2", "m3", "P4", "P5", "M6", "m7"},
+	"ionian":           {"R", "M2", "M3", "P4", "P5", "M6", "M7"},
+	"locrian":          {"R", "m2", "m3", "P4", "d5", "m6", "m7"},
+	"lydian":           {"R", "M2", "M3", "d5", "P5", "M6", "M7"},
+	"major":            {"R", "M2", "M3", "P4", "P5", "M6", "M7"},
+	"major-blues":      {"R", "M2", "m3", "M3", "P5", "M6"},
+	"major-pentatonic": {"R", "M2", "M3", "P5", "M6"},
+	"minor":            {"R", "M2", "m3", "P4", "P5", "m6", "m7"},
+	"minor-blues":      {"R", "m3", "P4", "d5", "P5", "m7"},
+	"minor-pentatonic": {"R", "m3", "P4", "P5", "m7"},
+	"mixolydian":       {"R", "M2", "M3", "P4", "P5", "M6", "m7"},
+	"phrygian":         {"R", "m2", "m3", "P4", "P5", "m6", "m7"},
 
-	"5th":         {"1", "5"},
-	"aug":         {"1", "3", "b6"},
-	"dim":         {"1", "b3", "b5"},
-	"m7b5":        {"1", "b3", "b5", "b7"},
-	"major-6th":   {"1", "3", "5", "6"},
-	"major-7th":   {"1", "3", "5", "b7"},
-	"major-maj7":  {"1", "3", "5", "7"},
-	"major-triad": {"1", "3", "5"},
-	"minor-6th":   {"1", "b3", "5", "6"},
-	"minor-7th":   {"1", "b3", "5", "b7"},
-	"minor-maj7":  {"1", "b3", "5", "7"},
-	"minor-triad": {"1", "b3", "5"},
-	"sus":         {"1", "4", "5"},
-	"sus2":        {"1", "2", "5"},
-	"sus4":        {"1", "4", "5"},
+	"5th":         {"R", "P5"},
+	"aug":         {"R", "M3", "m6"},
+	"dim":         {"R", "m3", "d5"},
+	"m7b5":        {"R", "m3", "d5", "m7"},
+	"major-6th":   {"R", "M3", "P5", "M6"},
+	"major-7th":   {"R", "M3", "P5", "m7"},
+	"major-maj7":  {"R", "M3", "P5", "M7"},
+	"major-triad": {"R", "M3", "P5"},
+	"minor-6th":   {"R", "m3", "P5", "M6"},
+	"minor-7th":   {"R", "m3", "P5", "m7"},
+	"minor-maj7":  {"R", "m3", "P5", "M7"},
+	"minor-triad": {"R", "m3", "P5"},
+	"sus":         {"R", "P4", "P5"},
+	"sus2":        {"R", "M2", "P5"},
+	"sus4":        {"R", "P4", "P5"},
 }
 
 type Interval struct {
@@ -83,34 +81,34 @@ func validInterval(i string) bool {
 
 func normalizeInterval(i string) string {
 	switch i {
-	case "P1":
-		return "1"
-	case "m2":
-		return "b2"
-	case "M2", "sus2":
+	case "1", "P1":
+		return "R"
+	case "b2":
+		return "m2"
+	case "2", "sus2":
+		return "M2"
+	case "b3":
+		return "m3"
+	case "3":
+		return "M3"
+	case "4", "sus4", "sus":
+		return "P4"
+	case "b5":
+		return "d5"
+	case "5":
+		return "P5"
+	case "b6", "#5":
+		return "m6"
+	case "6":
+		return "M6"
+	case "b7":
+		return "m7"
+	case "7":
+		return "M7"
+	case "b9", "m9":
+		return "m2"
+	case "9", "M9":
 		return "2"
-	case "m3":
-		return "b3"
-	case "M3":
-		return "3"
-	case "P4", "sus4", "sus":
-		return "4"
-	case "d5":
-		return "b5"
-	case "P5":
-		return "5"
-	case "m6", "#5":
-		return "b6"
-	case "M6":
-		return "6"
-	case "m7":
-		return "b7"
-	case "M7":
-		return "7"
-	case "m9":
-		return "b9"
-	case "M9":
-		return "9"
 	default:
 		return i
 	}
